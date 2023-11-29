@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}
+    <title>Home</title>
+{% endblock title %}
+
+
+{% block content %}
+
+            {% if request.user.is_authenticated %}
+
+                    {{ request.user }}
+
+                        <a href="{% url 'logout_url' %}">
+                        <button type="button">Log out</button>
+                    </a>
+                
+            {% else %}
+
+                    <a href="{% url 'signup_urls' %}">
+                        <button type="button" class="btn btn-primary">Create Account</button>
+                    </a>
+            {% endif %}
+{% endblock content %}
+    
+    
